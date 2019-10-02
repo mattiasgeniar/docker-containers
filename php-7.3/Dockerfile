@@ -20,7 +20,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 # Install composer
 ENV COMPOSER_HOME=/composer
-ENV PATH=./vendor/bin:/composer/vendor/bin:$HOME/.yarn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV PATH=./vendor/bin:/composer/vendor/bin:/root/.yarn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
