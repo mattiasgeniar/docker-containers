@@ -1,0 +1,22 @@
+on: push
+name: Run phpunit testsuite
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    container:
+      image: jackmdavis97/php:7.3
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Install composer dependencies
+      run: |
+        cd examples/laravel-framework && composer install
+    - name: Prepare Laravel Application
+      run: |
+        cd examples/laravel-framework && cp .env.example .env
+        cd examples/laravel-framework && php artisan key:generate
+    - name: Run Testsuite
+      run: cd examples/laravel-framework && vendor/bin/phpunit tests/
