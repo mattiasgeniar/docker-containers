@@ -11,15 +11,16 @@ jobs:
       with:
         fetch-depth: 1
 
-    - name: Change to the correct directory
-      run: |
-        cd examples/laravel-framework
     - name: Install composer dependencies
       run: |
+        cd examples/laravel-framework
         composer install
     - name: Prepare Laravel Application
       run: |
+        cd examples/laravel-framework
         cp .env.example .env
         php artisan key:generate
     - name: Run Testsuite
-      run: vendor/bin/phpunit tests/
+      run: |
+        cd examples/laravel-framework
+        vendor/bin/phpunit tests/
