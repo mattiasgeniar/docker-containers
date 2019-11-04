@@ -3,7 +3,7 @@ FROM php:7.3-cli
 LABEL maintainer="Mattias Geniar <m@ttias.be>"
 
 # Install package dependencies
-RUN apt update && apt install -y libmagickwand-dev git libzip-dev unzip
+RUN apt update && apt install -y libmagickwand-dev git libzip-dev unzip libgmp-dev
 
 # Enable default PHP extensions
 RUN docker-php-ext-install mysqli pdo_mysql pcntl bcmath zip soap intl gd exif gmp
