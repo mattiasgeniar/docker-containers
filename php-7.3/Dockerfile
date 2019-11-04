@@ -6,7 +6,7 @@ LABEL maintainer="Mattias Geniar <m@ttias.be>"
 RUN apt update && apt install -y libmagickwand-dev git libzip-dev unzip
 
 # Enable default PHP extensions
-RUN docker-php-ext-install mysqli pdo_mysql pcntl bcmath zip soap intl gd exif
+RUN docker-php-ext-install mysqli pdo_mysql pcntl bcmath zip soap intl gd exif gmp
 
 # Add imagick from pecl
 RUN pecl install imagick && echo 'extension=imagick.so' >> /usr/local/etc/php/php.ini
